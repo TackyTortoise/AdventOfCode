@@ -1,0 +1,4 @@
+﻿  AoC7.cpp
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc7.cpp(36): warning C4018: '<': signed/unsigned mismatch
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\Debug\AoC.exe
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\Debug\AoC.pdb (Full PDB)
