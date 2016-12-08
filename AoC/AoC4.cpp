@@ -25,7 +25,7 @@ int CheckRoom(string line)
 	}
 
 	bool isReal = true;
-	for (int i = 0; i < checkSum.length() - 1; ++i)
+	for (size_t i = 0; i < checkSum.length() - 1; ++i)
 	{
 		if ((m[checkSum[i]] < m[checkSum[i + 1]]) || (m[checkSum[i]] == m[checkSum[i + 1]] && checkSum[i] > checkSum[i + 1]) || m[checkSum[i]] == 0 || m[checkSum[i + 1]] == 0)
 		{
@@ -34,7 +34,7 @@ int CheckRoom(string line)
 		}
 	}
 
-	for (int i = 0; i < line.length(); ++i)
+	for (size_t i = 0; i < line.length(); ++i)
 	{
 		if (line[i] == '-')
 			line[i] = ' ';

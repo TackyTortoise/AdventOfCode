@@ -17,7 +17,7 @@ struct Triangle
 int CheckTriangles(const vector<Triangle>& p)
 {
 	int possibleCount = 0;
-	for (int cR = 0; cR < p.size(); cR += 3)
+	for (size_t cR = 0; cR < p.size(); cR += 3)
 	{
 		int one = p[cR].L1;
 		int two = p[cR + 1].L1;

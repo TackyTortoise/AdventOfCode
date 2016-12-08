@@ -155,12 +155,17 @@
     <ClCompile Include="AoC5.cpp" />
     <ClCompile Include="AoC6.cpp" />
     <ClCompile Include="AoC7.cpp" />
+    <ClCompile Include="AoC8.cpp" />
     <ClCompile Include="md5.cpp" />
     <ClCompile Include="md5wrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="md5.h" />
     <ClInclude Include="md5wrapper.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AoC.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

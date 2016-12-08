@@ -33,7 +33,7 @@ bool SupportsSSL(const std::string& s)
 	vector<string> hypernetseqs;
 	bool inBrackets = false;
 
-	for (int i = 0; i < s.length() - 2; ++i)
+	for (size_t i = 0; i < s.length() - 2; ++i)
 	{
 		if (s[i] == '[')
 			inBrackets = true;
@@ -66,7 +66,7 @@ bool SupportsSSL(const std::string& s)
 	return false;
 }
 
-void main()
+void main7()
 {
 	fstream input;
 	input.open("./Inputs/Input7.txt");
