@@ -1,0 +1,13 @@
+﻿  AoC9.cpp
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(43): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(44): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(54): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(63): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(64): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(66): warning C4129: '(': unrecognized character escape sequence
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(66): warning C4129: ')': unrecognized character escape sequence
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(139): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(140): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\x64\Debug\AoC.exe
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\x64\Debug\AoC.pdb (Full PDB)

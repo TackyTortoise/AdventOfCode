@@ -1,0 +1,11 @@
+﻿  AoC9.cpp
+AoC9.cpp(43): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+AoC9.cpp(44): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+AoC9.cpp(53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+AoC9.cpp(54): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+AoC9.cpp(63): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+AoC9.cpp(64): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+AoC9.cpp(66): warning C4129: '(': unrecognized character escape sequence
+AoC9.cpp(66): warning C4129: ')': unrecognized character escape sequence
+MSVCRT.lib(exe_main.obj) : error LNK2001: unresolved external symbol main
+C:\Users\diete\Desktop\3DAE\Stuff\AoC\x64\Release\AoC.exe : fatal error LNK1120: 1 unresolved externals

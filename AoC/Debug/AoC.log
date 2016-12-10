@@ -1,0 +1,5 @@
+﻿  AoC9.cpp
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(66): warning C4129: '(': unrecognized character escape sequence
+c:\users\diete\desktop\3dae\stuff\aoc\aoc\aoc9.cpp(66): warning C4129: ')': unrecognized character escape sequence
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\Debug\AoC.exe
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\Debug\AoC.pdb (Full PDB)
