@@ -1,4 +1,6 @@
-﻿  AoC9.cpp
+﻿  AoC10.cpp
+AoC10.cpp(92): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  AoC9.cpp
 AoC9.cpp(43): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 AoC9.cpp(44): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 AoC9.cpp(53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
@@ -7,5 +9,12 @@ AoC9.cpp(63): warning C4267: '=': conversion from 'size_t' to 'int', possible lo
 AoC9.cpp(64): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 AoC9.cpp(66): warning C4129: '(': unrecognized character escape sequence
 AoC9.cpp(66): warning C4129: ')': unrecognized character escape sequence
-MSVCRT.lib(exe_main.obj) : error LNK2001: unresolved external symbol main
-C:\Users\diete\Desktop\3DAE\Stuff\AoC\x64\Release\AoC.exe : fatal error LNK1120: 1 unresolved externals
+AoC9.cpp(139): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+AoC9.cpp(140): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  1162 of 1380 functions (84.2%) were compiled, the rest were copied from previous compilation.
+    175 functions were new in current compilation
+    33 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\x64\Release\AoC.exe
+  AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\x64\Release\AoC.pdb (Full PDB)

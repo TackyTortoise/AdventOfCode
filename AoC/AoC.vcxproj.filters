@@ -54,6 +54,9 @@
     <ClCompile Include="AoC9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AoC10.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="md5.h">

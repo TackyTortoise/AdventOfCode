@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AoC1-1.cpp" />
+    <ClCompile Include="AoC10.cpp" />
     <ClCompile Include="AoC2-2.cpp" />
     <ClCompile Include="AoC2.cpp" />
     <ClCompile Include="AoC3-2.cpp" />

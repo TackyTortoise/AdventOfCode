@@ -121,7 +121,7 @@ size_t Bar(string& in)
 	return result;
 }
 
-void main()
+void main9()
 {
 	ifstream input;
 	input.open("./Inputs/Input9.txt");
