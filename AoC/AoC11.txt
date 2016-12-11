@@ -1,0 +1,12 @@
+inspired by /u/drysle method 
+
+So I solved this problem with no code.
+With the limitations of the elevator, the best strategy for moving objects (microchips or generators) is to move 2 objects up a floor, then 1 object down a floor. That means moving 10 objects up one floor requires 17 moves. (2 moves per object, minus 3 because the last two objects get moved just once, and you don't need to return to the lower floor.)
+My input started with two objects on the second floor, so subtract 4 moves for the work already done. 17 + 17 + 17 - 4 = 47, which was the right answer for part 1. Add 24 moves for the 4 additional objects in part 2.
+
+e.g. part 2
+
+14 objects * 2 moves = 28 moves
+28 moves - 3 moves saved when moving last 3 items = 25 moves
+25 moves * 3 floors = 75 moves
+75 moves - 4 moves saved because 2 items are on the second floor already = 71 moves
