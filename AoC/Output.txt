@@ -1,0 +1,7 @@
+Reached Point: 2, 0
+Reached Point: 17, 0
+Reached Point: 18, 0
+Reached Point: 19, 0
+Reached Point: 0, 1
+Reached Point: 1, 1
+Reached Point: 2, 1
