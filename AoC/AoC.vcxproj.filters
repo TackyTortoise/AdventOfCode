@@ -60,7 +60,10 @@
     <ClCompile Include="AoC12.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="AoC14.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AoC15.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
