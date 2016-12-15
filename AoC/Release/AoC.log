@@ -1,9 +1,14 @@
-﻿  AoC15.cpp
-AoC15.cpp(29): warning C4018: '<': signed/unsigned mismatch
+﻿  AoC14.cpp
+AoC14.cpp(29): warning C4018: '<': signed/unsigned mismatch
+  AoC15.cpp
+AoC15.cpp(20): warning C4129: 'd': unrecognized character escape sequence
+  AoC13.cpp
+AoC13.cpp(79): warning C4101: 'PointIndex': unreferenced local variable
+AoC13.cpp(104): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  1 of 841 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    9 functions had inline decision re-evaluated but remain unchanged
+  665 of 1161 functions (57.3%) were compiled, the rest were copied from previous compilation.
+    60 functions were new in current compilation
+    56 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\Release\AoC.exe
   AoC.vcxproj -> C:\Users\diete\Desktop\3DAE\Stuff\AoC\Release\AoC.pdb (Full PDB)

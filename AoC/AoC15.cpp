@@ -1,73 +1,60 @@
-#include "md5wrapper.h"
-#include <string>
 #include <iostream>
-#include <map>
+#include <string>
+#include <regex>
+#include <fstream>
+#include <vector>
 
 using namespace std;
 
-void main15()
+struct Disc
 {
-	map<int, string> hashes;
-	md5wrapper md5;
-	string input = "ihaygndm";
-	int validHashes = 0;
-	for (int i = 10; i < INT_MAX; ++i)
-	{
-		string h = input + to_string(i);
-		string hash;
-		//produce hash if it doesn't exist yet
-		if (hashes.find(i) == hashes.end())
-		{
-			hash = md5.getHashFromString(h);
-			for (int p = 0; p < 2016; ++p)
-				hash = md5.getHashFromString(hash);
-			hashes[i] = hash;
-		}
-		else
-			hash = hashes[i];
+	Disc(int pc, int sp) : positionCount(pc), startPosition(sp) {}
+	int positionCount = 0;
+	int startPosition = 0;
+};
 
-		for (int e = 0; e < hash.size() - 2; ++e)
+int main()
+{
+	vector<Disc> discs;
+	ifstream input("Inputs/Input15.txt");
+	regex rgx("\\d+");
+	if (input.is_open())
+	{
+		string line;
+		while (getline(input, line))
 		{
-			//three consecutive same numbers
-			if (hash[e] == hash[e + 1] && hash[e] == hash[e + 2])
+			std::sregex_iterator next(line.begin(), line.end(), rgx);
+			std::sregex_iterator end;
+			vector<int> sm;
+			while (next != end) {
+				std::smatch match = *next;
+				sm.push_back(stoi(match.str()));
+				++next;
+			}
+			discs.push_back(Disc(sm[1], sm[3]));
+		}
+	}
+	else
+		cout << "Failed to open Input15.txt" << endl;
+
+	//part 2
+	discs.push_back(Disc(11, 0));
+
+	for (size_t t = 5;; ++t)
+	{
+		bool correct = true;
+		for (int i = 0; i < discs.size(); ++i)
+		{
+			if ((discs[i].startPosition + t + i + 1) % discs[i].positionCount != 0)
 			{
-				string nums;
-				for (int t = 0; t < 5; ++t)
-					nums += hash[e];
-				bool valid = false;
-				//check next thousand hashes
-				for (int c = 1; c < 1000; ++c)
-				{
-					string h2 = input + to_string(i + c);
-					string hash2;
-					if (hashes.find(i + c) == hashes.end())
-					{
-						hash2 = md5.getHashFromString(h2);
-						for (int p = 0; p < 2016; ++p)
-							hash2 = md5.getHashFromString(hash2);
-						hashes[i + c] = hash2;
-					}
-					else
-						hash2 = hashes[i + c];
-					if (hash2.find(nums) != string::npos)
-					{
-						valid = true;
-						break;
-					}
-				}
-				if (valid)
-				{
-					++validHashes;
-					cout << "found key at position " << i << endl;
-					break;
-				}
+				correct = false;
 				break;
 			}
 		}
 
-		if (validHashes == 64)
+		if (correct)
 		{
-			cout << i << endl;
+			cout << "Correct setting at time = " << t << endl;
 			break;
 		}
 	}
