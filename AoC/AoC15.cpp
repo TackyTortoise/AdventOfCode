@@ -13,7 +13,7 @@ struct Disc
 	int startPosition = 0;
 };
 
-int main()
+void main15()
 {
 	vector<Disc> discs;
 	ifstream input("Inputs/Input15.txt");
