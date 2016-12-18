@@ -63,14 +63,14 @@ string GetRandomPath(const string& input)
 	return path;
 }
 
-void main()
+void main17()
 {
 	srand(time(nullptr));
 	vector<string> paths;
 	int maxLength = 0;
 	for (int i = 0; i < INT_MAX; ++i)
 	{
-		string t = GetRandomPath("pvhmgsws");
+		string t = GetRandomPath("ihgpwlah");
 		if (t.rfind("FAILED") == string::npos && find(paths.begin(), paths.end(), t) == paths.end())
 		{
 			cout << t << endl;
