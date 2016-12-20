@@ -137,7 +137,7 @@ void ListMethod2(int num)
 	cout << "Elf " << current->number << endl;
 }
 
-void main()
+void main19()
 {
 	part1();
 	ListMethod2(3017957);
