@@ -37,7 +37,6 @@ string Scramble(const string in, const vector<string>& instructions)
 {
 	ifstream input("Inputs/Input21.txt");
 	string myString = in;
-	//cout << myString << endl;
 	for (string line : instructions)
 	{
 		if (line.find("swap position") != string::npos)
@@ -45,7 +44,6 @@ string Scramble(const string in, const vector<string>& instructions)
 			int pos1 = line[line.find(" with") - 1] - '0';
 			int pos2 = line[line.size() - 1] - '0';
 			Swap(pos1, pos2, myString);
-			//cout << "Swap " << pos1 << " and " << int(line[line.size() - 1] - '0') << " : " << myString << endl;
 		}
 		else if (line.find("swap letter") != string::npos)
 		{
@@ -54,7 +52,6 @@ string Scramble(const string in, const vector<string>& instructions)
 			int pos1 = myString.find(firstLetter);
 			int pos2 = myString.find(secondLetter);
 			Swap(pos1, pos2, myString);
-			//cout << "Swap " << firstLetter << " and " << secondLetter << " : " << myString << endl;
 		}
 		else if (line.find("rotate based") != string::npos)
 		{
@@ -62,7 +59,6 @@ string Scramble(const string in, const vector<string>& instructions)
 			int offset = myString.find(letter);
 			offset += offset >= 4 ? 2 : 1;
 			RotateRight(offset, myString);
-			//cout << "Rotate based on " << letter << " offset " << offset << " : " << myString << endl;
 		}
 		else if (line.find("rotate") != string::npos)
 		{
@@ -71,14 +67,12 @@ string Scramble(const string in, const vector<string>& instructions)
 				RotateLeft(offset, myString);
 			else
 				RotateRight(offset, myString);
-			//cout << "Rotate with index " << offset << " : " << myString << endl;
 		}
 		else if (line.find("reverse") != string::npos)
 		{
 			int pos1 = line[line.find(" through") - 1] - '0';
 			int pos2 = line[line.size() - 1] - '0';
 			reverse(myString.begin() + pos1, myString.begin() + pos2 + 1);
-			//cout << "Reversed " << pos1 << " through " << pos2 << " : " << myString << endl;
 		}
 		else if (line.find("move") != string::npos)
 		{
@@ -87,12 +81,8 @@ string Scramble(const string in, const vector<string>& instructions)
 			char letter = myString[pos1];
 			myString.erase(myString.begin() + pos1);
 			myString.insert(myString.begin() + pos2, letter);
-			//cout << "Moved " << pos1 << " to " << pos2 << " : " << myString << endl;
 		}
-
 	}
-
-	cout << myString << endl;
 
 	input.close();
 	return myString;
@@ -122,12 +112,15 @@ string UnScramble(const string in, const vector<string>& instructions)
 		{
 			char letter = line[line.size() - 1];
 			int offset = myString.find(letter);
-			if (offset % 2 == 0)
-				offset = offset / 2 + 5;
-			else
-				offset -= offset / 2;
 			if (offset == 0)
 				offset = 9;
+			else
+			{
+				if (offset % 2 == 0)
+					offset = offset / 2 + 5;
+				else
+					offset -= offset / 2;
+			}
 			RotateLeft(offset, myString);
 		}
 		else if (line.find("rotate") != string::npos)
@@ -156,13 +149,11 @@ string UnScramble(const string in, const vector<string>& instructions)
 		}
 	}
 
-	cout << myString << endl;
-
 	input.close();
 	return myString;
 }
 
-void main()
+void main21()
 {
 	ifstream input("Inputs/Input21.txt");
 	vector<string> instructions;
@@ -178,21 +169,9 @@ void main()
 		cout << "Failed to open Input21.txt" << endl;
 
 	string g = Scramble("abcdefgh", instructions);
+	cout << "abcdefgh scrambled: " << g << endl;
 	reverse(instructions.begin(), instructions.end());
-	string r = UnScramble(g, instructions);
-
-	string in = "fdhbcgea";
-	int ts = 1;
-	for (int i = 0; i < instructions.size() - ts + 1; i += ts)
-	{
-		vector<string> test;
-		for (int j = 0; j < ts; ++j)
-			test.push_back(instructions[i + j]);
-		string o = Scramble("abcdefgh", vector<string>{test});
-		//reverse(test.begin(), test.end());
-		string t = UnScramble(o, vector<string>{test});
-		if (t != "abcdefgh")
-			int c = 0;
-	}
+	string r = UnScramble("fbgdceah", instructions);
+	cout << "fbgdceah unscrambled: " << r << endl;
 	cin.get();
 }

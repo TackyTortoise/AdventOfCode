@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void main()
+void main20()
 {
 	regex rgx("\\d+");
 
