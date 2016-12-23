@@ -41,7 +41,7 @@ void PrintGrid(const vector<GridNode>& grid)
 	}
 }
 
-void main()
+void main22()
 {
 	vector<GridNode> grid(GRID_WIDTH * GRID_HEIGHT);
 
