@@ -183,11 +183,11 @@ public:
 
 						//calculate h, g and f score
 						//g = current.g + cost(dist current and this) ---> OR ues GetTileCost() if using hard value (needs extra support for diagonal movement)
-						float cost = HeuristicManhatten(abs(currentPoint->x - n->x), abs(currentPoint->y - n->y));
-						n->GScore = cost;
+						float cost = Euclidean(abs(currentPoint->x - n->x), abs(currentPoint->y - n->y));
+						n->GScore = n->parent->GScore + cost;
 
 						//h = distance this and goal
-						n->HScore = HeuristicManhatten(abs(n->x - endElement->x), abs(n->y - endElement->y));
+						n->HScore = Euclidean(abs(n->x - endElement->x), abs(n->y - endElement->y));
 
 						//f = g + h
 						n->FScore = n->GScore + n->HScore;
@@ -223,15 +223,19 @@ private:
 	{
 		return float(x + y);
 	}
+	inline float Euclidean(int x, int y)
+	{
+		return float(sqrt(x*x + y*y));
+	}
 };
 
-void main13()
+void main()
 {
 	AStarGrid* grid = new AStarGrid();
 	//grid->Draw();
 	PathFinder* finder = new PathFinder();
-	auto n = grid->GetNeighbours(grid->GetElement(1, 1));
-	auto path = finder->FindPath(grid->GetElement(1, 1), grid->GetElement(49, 49), grid);
+	auto n = grid->GetNeighbours(grid->GetElement(0, 0));
+	auto path = finder->FindPath(grid->GetElement(1, 1), grid->GetElement(31, 39), grid);
 	grid->ClearParents();
 
 	ofstream output("Output.txt");
@@ -240,7 +244,7 @@ void main13()
 	{
 		if (!grid->Elements[i]->open)
 			continue;
-		path = finder->FindPath(grid->GetElement(1, 1), grid->Elements[i], grid);
+		path = finder->FindPath(grid->GetElement(0, 0), grid->Elements[i], grid);
 		grid->ClearParents();
 		if (path.size() <= 50)
 		{

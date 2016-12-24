@@ -168,11 +168,11 @@ public:
 
 					//calculate h, g and f score
 					//g = current.g + cost(dist current and this) ---> OR ues GetTileCost() if using hard value (needs extra support for diagonal movement)
-					float cost = HeuristicManhatten(abs(currentPoint->x - n->x), abs(currentPoint->y - n->y));
-					n->GScore = cost;
+					float cost = Euclidean(abs(currentPoint->x - n->x), abs(currentPoint->y - n->y));
+					n->GScore = n->parent->GScore + cost;
 
 					//h = distance this and goal
-					n->HScore = HeuristicManhatten(abs(n->x - endElement->x), abs(n->y - endElement->y));
+					n->HScore = Euclidean(abs(n->x - endElement->x), abs(n->y - endElement->y));
 
 					//f = g + h
 					n->FScore = n->GScore + n->HScore;
@@ -180,7 +180,6 @@ public:
 					//add to openlist
 					openList.push_back(n);
 				}
-
 			}
 		}
 
@@ -208,6 +207,23 @@ private:
 	{
 		return float(x + y);
 	}
+	inline float TestHeuristic(int x ,int y)
+	{
+		return float(sqrt(x + y) * (x + y));
+	}
+	inline float Octile(int x, int y)
+	{
+		auto f = sqrt(2) - 1;
+		return float((x < y) ? f * x + y : f * y + x);
+	}
+	inline float Euclidean(int x, int y)
+	{
+		return float(sqrt(x*x + y*y));
+	}
+	inline float Chebyshev(int x, int y)
+	{
+		return std::max(x, y);
+	}
 };
 
 bool operator< (Point p1, Point p2)
@@ -223,13 +239,13 @@ bool operator< (Point p1, Point p2)
 
 struct myPath
 {
-	myPath(Point s, Point e, unsigned int l):start(s), end(e), length(l){}
+	myPath(Point s, Point e, unsigned int l) :start(s), end(e), length(l) {}
 	Point start;
 	Point end;
 	unsigned int length;
 };
 
-void main()
+void main24()
 {
 	//read input / initialize points
 	ifstream inputFile("Inputs/Input24.txt");
@@ -258,6 +274,17 @@ void main()
 
 	//set up grid
 	AStarGrid* grid = new AStarGrid(points);
+
+	//ofstream output("Output.txt");
+	//for (int i = 0; i < grid->Elements.size(); ++i)
+	//{
+	//	char c = grid->Elements[i]->open ? '.' : '#';
+	//	output << c;
+	//	if (i % WIDTH == WIDTH - 1)
+	//		output << endl;
+	//}
+	//output.close();
+
 	//grid->Draw();
 	PathFinder finder;
 
@@ -267,14 +294,14 @@ void main()
 	{
 		for (int j = i + 1; j < pointsToVisit.size(); ++j)
 		{
-			if (pointsToVisit[i].x == 1 && pointsToVisit[j].x == 1)
+			if (pointsToVisit[i].x == 53 && pointsToVisit[j].x == 141)
 				int t = 0;
 			auto foundPath = finder.FindPath(grid->GetElement(pointsToVisit[i].x, pointsToVisit[i].y), grid->GetElement(pointsToVisit[j].x, pointsToVisit[j].y), grid);
 			grid->ClearParents();
 			myPaths.push_back(myPath(pointsToVisit[i], pointsToVisit[j], foundPath.size() - 1));
 		}
 	}
-	
+
 	//get rid of first point to visit, to later always put it back in first place
 	Point startPoint = pointsToVisit[0];
 	pointsToVisit.erase(pointsToVisit.begin());
@@ -283,7 +310,7 @@ void main()
 	vector<int> perm(pointsToVisit.size());
 	for (int i = 0; i < pointsToVisit.size(); ++i)
 		perm[i] = i;
-	
+
 	vector<Point> shortestPath;
 	while (next_permutation(perm.begin(), perm.end()))
 	{
@@ -295,6 +322,7 @@ void main()
 		}
 		//insert where bot begins
 		path.insert(path.begin(), startPoint);
+		path.push_back(startPoint);
 
 		//calculate path distance
 		int totalPathLength = 0;
@@ -320,9 +348,18 @@ void main()
 
 	cout << "shortest path found: " << shortestPathLength << endl;
 
-	for (int i = 0; i < shortestPath.size(); ++i)
+	for (int i = 0; i < shortestPath.size() - 1; ++i)
 	{
-		cout << shortestPath[i] << " -> ";
+		int l = 0;
+		for (auto p : myPaths)
+		{
+			if ((p.start == shortestPath[i] && p.end == shortestPath[i + 1]) || (p.start == shortestPath[i + 1] && p.end == shortestPath[i]))
+			{
+				l += p.length;
+				break;
+			}
+		}
+		cout << shortestPath[i] << " -> " << shortestPath[i + 1] << " length: " << l << endl;
 	}
 	cout << endl;
 

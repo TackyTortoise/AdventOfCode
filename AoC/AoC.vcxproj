@@ -151,8 +151,17 @@
     <ClCompile Include="AoC12.cpp" />
     <ClCompile Include="AoC14.cpp" />
     <ClCompile Include="AoC15.cpp" />
+    <ClCompile Include="AoC16.cpp" />
+    <ClCompile Include="AoC17.cpp" />
+    <ClCompile Include="AoC18.cpp" />
+    <ClCompile Include="AoC19.cpp" />
     <ClCompile Include="AoC2-2.cpp" />
     <ClCompile Include="AoC2.cpp" />
+    <ClCompile Include="AoC20.cpp" />
+    <ClCompile Include="AoC21.cpp" />
+    <ClCompile Include="AoC22.cpp" />
+    <ClCompile Include="AoC23.cpp" />
+    <ClCompile Include="AoC24.cpp" />
     <ClCompile Include="AoC3-2.cpp" />
     <ClCompile Include="AoC3.cpp" />
     <ClCompile Include="AoC4.cpp" />

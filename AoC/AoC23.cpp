@@ -111,7 +111,7 @@ int HandleInstruction(const string& instruction, vector<Registery>& registeries,
 	return 1;
 }
 
-void main()
+void main23()
 {
 	vector<Registery> regs{ { 'a', 12 },{ 'b', 0 },{ 'c', 0 },{ 'd', 0 } };
 	vector<string> instructions;

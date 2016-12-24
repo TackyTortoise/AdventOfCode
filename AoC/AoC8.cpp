@@ -105,7 +105,7 @@ void main8()
 		screen[i] = 0;
 
 	fstream input;
-	input.open("./Inputs/Input8.txt");
+	input.open("./Inputs/TestInput.txt");
 	if (input.is_open())
 	{
 		string line;
