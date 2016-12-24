@@ -73,6 +73,14 @@ public:
 		return Elements[y * SIZE + x];
 	}
 
+	void ClearParents()
+	{
+		for (auto e : Elements)
+		{
+			e->parent = nullptr;
+		}
+	}
+
 	vector<Point*> GetNeighbours(Point* p)
 	{
 		vector<Point *> result;
@@ -182,7 +190,7 @@ public:
 						n->HScore = HeuristicManhatten(abs(n->x - endElement->x), abs(n->y - endElement->y));
 
 						//f = g + h
-						n->FScore = n->FScore + n->HScore;
+						n->FScore = n->GScore + n->HScore;
 
 						//add to openlist
 						openList.push_back(n);
@@ -224,6 +232,7 @@ void main13()
 	PathFinder* finder = new PathFinder();
 	auto n = grid->GetNeighbours(grid->GetElement(1, 1));
 	auto path = finder->FindPath(grid->GetElement(1, 1), grid->GetElement(49, 49), grid);
+	grid->ClearParents();
 
 	ofstream output("Output.txt");
 	int counter = 0;
@@ -232,6 +241,7 @@ void main13()
 		if (!grid->Elements[i]->open)
 			continue;
 		path = finder->FindPath(grid->GetElement(1, 1), grid->Elements[i], grid);
+		grid->ClearParents();
 		if (path.size() <= 50)
 		{
 			++counter;
