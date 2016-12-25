@@ -229,7 +229,7 @@ private:
 	}
 };
 
-void main()
+void main13()
 {
 	AStarGrid* grid = new AStarGrid();
 	//grid->Draw();
